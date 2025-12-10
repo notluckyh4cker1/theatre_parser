@@ -17,7 +17,7 @@ HEADERS = {
 }
 
 # Настройки задержек
-REQUEST_DELAY = 5
+REQUEST_DELAY = 3
 TIMEOUT = 10
 
 # Настройки MongoDB
@@ -27,6 +27,34 @@ MONGO_CONFIG = {
     'database': 'theater_db',
     'collection': 'plays'
 }
+
+# Настройки Redis для кеширования
+REDIS_CONFIG = {
+    'host': 'localhost',
+    'port': 6379,
+    'db': 0,
+    'password': None,
+    'socket_timeout': 5,
+    'socket_connect_timeout': 5,
+    'retry_on_timeout': True,
+}
+
+# Настройки кеширования
+CACHE_CONFIG = {
+    'ttl': 3600,  # Время жизни кеша в секундах
+    'prefix': 'theater:',
+    'enabled': True,
+}
+
+# Сложные запросы для кеширования
+COMPLEX_QUERIES = [
+    'theatre_stats',
+    'genre_stats',
+    'upcoming_shows',
+    'top_actors',
+    'popular_directors',
+    'date_distribution'
+]
 
 PARSING_CONFIG = {
     'min_duration': 30,
